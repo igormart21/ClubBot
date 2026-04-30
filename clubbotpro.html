@@ -219,6 +219,13 @@
   .pricing-features li::before { content: ''; width: 5px; height: 5px; background: var(--purple-el); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 6px var(--purple-el); }
   .btn-full { display: block; width: 100%; background: linear-gradient(135deg, var(--purple), var(--purple-el)); color: var(--white); font-family: var(--font-d); font-weight: 700; font-size: 1rem; padding: 1.1rem; border: none; cursor: pointer; text-align: center; text-decoration: none; border-radius: 4px; letter-spacing: -0.01em; transition: box-shadow 0.2s, transform 0.15s; }
   .btn-full:hover { box-shadow: 0 0 32px var(--purple), 0 4px 24px rgba(123,62,255,0.5); transform: translateY(-2px); }
+  /* HOTMART Sales Funnel */
+  .hotmart-funnel-wrap {
+    width: 100%;
+    min-height: 72px;
+    scroll-margin-top: 5.5rem;
+  }
+  .hotmart-funnel-wrap#comprar { margin-top: 0.25rem; }
   .slots-warning { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 0.8rem; color: #F87171; margin-top: 1rem; font-weight: 500; text-shadow: 0 0 8px rgba(248,113,113,0.35); }
   .slot-dot { width: 6px; height: 6px; border-radius: 50%; background: #F87171; box-shadow: 0 0 6px #F87171; animation: blink 1.5s infinite; }
   .pricing-guarantee { text-align: center; font-size: 0.78rem; color: var(--gray-soft); margin-top: 1.25rem; }
@@ -468,7 +475,7 @@
 
 <nav>
   <div class="nav-logo">Club<span>Bot Pro</span></div>
-  <a href="#pricing" class="nav-cta">Unirme ahora</a>
+  <a href="#comprar" class="nav-cta">Unirme ahora</a>
 </nav>
 
 <!-- HERO -->
@@ -483,7 +490,7 @@
     <h1>Automatiza más.<br><span class="grad">En menos tiempo.</span></h1>
     <p class="hero-sub">ClubBot Pro es la comunidad de $10/mes para quienes ya tienen Typebot Ilimitado y quieren resultados reales — sin perder horas buscando respuestas por internet.</p>
     <div class="hero-actions">
-      <a href="#pricing" class="btn-primary">Quiero acceso por $10/mes →</a>
+      <a href="#comprar" class="btn-primary">Quiero acceso por $10/mes →</a>
       <span class="hero-note">Solo <strong>100 plazas disponibles</strong></span>
     </div>
   </div>
@@ -702,7 +709,10 @@
         <li>Nuevos recursos y templates cada mes</li>
       </ul>
       <div class="pricing-divider"></div>
-      <a href="#" class="btn-full">Quiero entrar al ClubBot Pro →</a>
+      <!-- HOTMART - Sales Funnel Widget -->
+      <div id="comprar" class="hotmart-funnel-wrap">
+        <div id="hotmart-sales-funnel"></div>
+      </div>
       <div class="slots-warning"><span class="slot-dot"></span> Quedan pocas plazas disponibles este mes</div>
       <p class="pricing-guarantee">Sin contratos. Sin letra pequeña. <span>Cancela en cualquier momento.</span></p>
     </div>
@@ -746,7 +756,7 @@
     <div class="section-tag" style="margin-bottom:1rem;">Última oportunidad</div>
     <h2 class="section-title" style="font-size:clamp(2.2rem,5vw,4rem);margin-bottom:1rem;">Entra antes de que<br>se agoten las plazas.</h2>
     <p style="font-size:1rem;color:var(--gray-soft);max-width:440px;margin:0 auto 2.5rem;font-weight:300;line-height:1.75;">100 miembros. $10 al mes. Todo el soporte que necesitas para automatizar de verdad.</p>
-    <a href="#pricing" class="btn-primary">Quiero entrar al ClubBot Pro →</a>
+    <a href="#comprar" class="btn-primary">Quiero entrar al ClubBot Pro →</a>
   </div>
 </section>
 
@@ -754,6 +764,16 @@
   <strong>ClubBot Pro</strong> — La comunidad élite de Typebot Ilimitado<br>
   <span style="margin-top:0.4rem;display:block;">© 2025 · Todos los derechos reservados</span>
 </footer>
+
+<!-- HOTMART - Sales Funnel Widget -->
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof checkoutElements !== 'undefined' && checkoutElements.init) {
+      checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+    }
+  });
+</script>
 
 <script>
   const obs = new IntersectionObserver((entries) => {
